@@ -1,0 +1,26 @@
+<%- include("partials/header") %>
+
+<h2> Home </h2>
+<p><%= homeContent %></p>
+
+<% diary.forEach(function(element){ %>
+  <h2> <%=element.title%> </h2> 
+  <% const string= element.post %>
+  <% let post = truncate(string,100) %>   
+<p> <%= post %> 
+
+  <a href= <%= "/posts/"+ element.title %> > Read more </a>
+
+</p> 
+
+<% }); %>
+
+<%- include("partials/footer") %>
+
+<% function truncate(str,n){ %>
+    <%  return (str.length > n) ? str.substr(0, n-1) + '...' : str; %>
+    <% }; %>  
+
+
+
+
